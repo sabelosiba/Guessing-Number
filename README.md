@@ -20,4 +20,4 @@ while  guessNumber != bot_Number:
 
     else: 
 
-     print('You guseed right ! after {attempts} attempts')
+     print('You guessed right ! after {attempts} attempts')
