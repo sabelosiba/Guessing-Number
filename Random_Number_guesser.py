@@ -37,7 +37,7 @@ class Random_Number_Guesser:
         user_Input.pack(padx=20, pady=30)
 
         # This refers to the result of the input box
-        results = tkinter.Label(self.root, text="The Value You Inputted Was: ", font=MAIN_FONT, background=BACKGROUND_HEX, foreground="white")
+        results = tkinter.Label(self.root, text="Please enter a number: ", font=MAIN_FONT, background=BACKGROUND_HEX, foreground="white")
         results.pack(pady=20, padx=20)
 
         # This function will be called when the button (btn_Submit) is pressed
