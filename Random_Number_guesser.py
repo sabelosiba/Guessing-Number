@@ -42,17 +42,23 @@ class Random_Number_Guesser:
 
         # This function will be called when the button (btn_Submit) is pressed
         def display_Result():
-            user_guess = int(user_Input.get()) #  Gets the value from the Entry Box
-            self.attempts += 1 # Increases by one each time the button is clicked 
-            
-            if user_guess == self.bot_number: #  Checks if the User has Won or Lost
-                message = f"You guessed right! after {self.attempts} attempts"
-            elif user_guess < self.bot_number: #   Prompts the User to guess Higher
-                message = "Guess bigger!"
-            else:
-                 message = "Guess smaller!"
-            
-            results.config(text=message)
+                    try:
+                        user_guess = int(user_Input.get()) #  Gets the value from the Entry Box
+                        self.attempts += 1 # Increases by one each time the button is clicked 
+                        
+                        if user_guess == self.bot_number: #  Checks if the User has Won or Lost
+                            message = f"You guessed right! after {self.attempts} attempts"
+                        elif user_guess < self.bot_number: #   Prompts the User to guess Higher
+                            message = "Guess bigger!"
+                        elif user_guess > self.bot_number:
+                            message = "Guess smaller!"
+                        elif user_guess == '':
+                             message = 'Please enter a number'
+                        
+                        results.config(text=message)
+                    except ValueError:
+                          message = 'Please enter a number'
+                          results.config(text=message) 
 
         # This refers to the submit button
         btn_Submit = tkinter.Button(self.root, text="Submit", font=(MAIN_FONT, SECONDARY_HEADER, 'bold'), background=BUTTON_HEX, command=display_Result , foreground='white',justify='center')
